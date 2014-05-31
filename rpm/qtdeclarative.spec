@@ -80,6 +80,24 @@ Requires:   qt5-qtdeclarative-qtquick = %{version}-%{release}
 This package contains the development headers for legacy QtQuick 1
 QML support library
 
+%package qtquickwidgets
+Summary:    Qt Declarative - QtQuick Widgets library
+Group:      Qt/Qt
+Requires:   %{name} = %{version}-%{release}
+
+%description qtquickwidgets
+This package contains the QtQuick Widgets support library
+
+%package qtquickwidgets-devel
+Summary:    Qt Declarative - QtQuick Widgets development files
+Group:      Qt/Qt
+Requires:   %{name} = %{version}-%{release}
+Requires:   qt5-qtdeclarative-qtquickwidgets = %{version}-%{release}
+
+%description qtquickwidgets-devel
+This package contains the development headers for QtQuickWidgets
+QML support library
+
 %package qtquickparticles
 Summary:    Qt Declarative - QtQuick Particles library
 Group:      Qt/Qt
@@ -308,6 +326,11 @@ cp lib/libQt5QmlDevTools.a %{buildroot}/%{_libdir}
 /sbin/ldconfig
 
 
+%post qtquickwidgets
+/sbin/ldconfig
+%postun qtquickwidgets
+/sbin/ldconfig
+
 %post qtquickparticles
 /sbin/ldconfig
 %postun qtquickparticles
@@ -438,6 +461,21 @@ cp lib/libQt5QmlDevTools.a %{buildroot}/%{_libdir}
 %{_libdir}/pkgconfig/Qt5QuickTest.pc
 %{_datadir}/qt5/mkspecs/modules/qt_lib_qmltest.pri
 %{_datadir}/qt5/mkspecs/modules/qt_lib_qmltest_private.pri
+
+%files qtquickwidgets
+%defattr(-,root,root,-)
+%{_libdir}/libQt5QuickWidgets.so.5
+%{_libdir}/libQt5QuickWidgets.so.5.*
+
+%files qtquickwidgets-devel
+%defattr(-,root,root,-)
+%{_includedir}/qt5/QtQuickWidgets/
+%{_libdir}/libQt5QuickWidgets.so
+%{_libdir}/libQt5QuickWidgets.prl
+%{_libdir}/pkgconfig/Qt5QuickWidgets.pc
+%{_datadir}/qt5/mkspecs/modules/qt_lib_quickwidgets.pri
+%{_datadir}/qt5/mkspecs/modules/qt_lib_quickwidgets_private.pri
+
 
 %files qtquickparticles
 %defattr(-,root,root,-)
