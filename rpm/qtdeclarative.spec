@@ -193,14 +193,6 @@ Requires:   %{name} = %{version}-%{release}
 %description import-models2
 This package provides the QtDeclarative models plugin for QtQuick 2.0
 
-%package import-privatewidgets
-Summary:    Qt Declarative private widgets plugin
-Group:      Qt/Qt
-Requires:   %{name} = %{version}-%{release}
-
-%description import-privatewidgets
-This package provides the QtDeclarative private widgets plugin for QtQuick 2.0
-
 %package import-xmllistmodel
 Summary:    Qt Declarative XmlListModel plugin
 Group:      Qt/Qt
@@ -426,10 +418,6 @@ cp lib/libQt5QmlDevTools.a %{buildroot}/%{_libdir}
 %files import-models2
 %defattr(-,root,root,-)
 %{_libdir}/qt5/qml/QtQml/Models.2/
-
-%files import-privatewidgets
-%defattr(-,root,root,-)
-%{_libdir}/qt5/qml/QtQuick/PrivateWidgets/
 
 %files import-xmllistmodel
 %defattr(-,root,root,-)
