@@ -12,7 +12,6 @@ BuildRequires:  qt5-qtnetwork-devel
 BuildRequires:  qt5-qtopengl-devel
 BuildRequires:  qt5-qtsql-devel
 BuildRequires:  qt5-qttest-devel
-BuildRequires:  qt5-qtv8-devel
 BuildRequires:  qt5-qtwidgets-devel
 BuildRequires:  qt5-qtxmlpatterns-devel
 BuildRequires:  qt5-qmake
