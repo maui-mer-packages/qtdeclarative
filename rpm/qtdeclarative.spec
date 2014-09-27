@@ -261,7 +261,7 @@ This package contains QML debugging and development tools
 export QTDIR=/usr/share/qt5
 touch .git
 
-#%ifarch %arm
+%ifarch %arm
 # to enable JIT, we need to enable thumb, as it is the only supported
 # configuration for JIT on ARM. unfortunately, we are not currently in the right
 # frame of mind to be able to deal with a full thumb transition, so we need to
@@ -273,14 +273,14 @@ touch .git
 # the right place: it's after everything has happened except for
 # default_post.prf, which sets up the real QMAKE_C{XX}FLAGS, so brutally abuse
 # it to acomplish our evil goals.
-#%qmake5 -after \
-#    QMAKE_CFLAGS_RELEASE-=-mno-thumb     QMAKE_CFLAGS_DEBUG-=-mno-thumb \
-#    QMAKE_CXXFLAGS_RELEASE-=-mno-thumb   QMAKE_CXXFLAGS_DEBUG-=-mno-thumb \
-#    QMAKE_CFLAGS_RELEASE+=-mthumb        QMAKE_CFLAGS_DEBUG+=-mthumb \
-#    QMAKE_CXXFLAGS_RELEASE+=-mthumb      QMAKE_CXXFLAGS_DEBUG+=-mthumb
-#%else
+%qmake5 -after \
+    QMAKE_CFLAGS_RELEASE-=-mno-thumb     QMAKE_CFLAGS_DEBUG-=-mno-thumb \
+    QMAKE_CXXFLAGS_RELEASE-=-mno-thumb   QMAKE_CXXFLAGS_DEBUG-=-mno-thumb \
+    QMAKE_CFLAGS_RELEASE+=-mthumb        QMAKE_CFLAGS_DEBUG+=-mthumb \
+    QMAKE_CXXFLAGS_RELEASE+=-mthumb      QMAKE_CXXFLAGS_DEBUG+=-mthumb
+%else
 %qmake5
-#%endif
+%endif
 
 make %{?_smp_mflags}
 
